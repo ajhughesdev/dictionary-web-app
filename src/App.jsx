@@ -1,13 +1,22 @@
+import { useState } from 'react'
+
 import { ReactComponent as Logo } from './assets/images/logo.svg'
-import { ReactComponent as Moon } from './assets/images/icon-moon.svg'
 import { ReactComponent as Play } from './assets/images/icon-play.svg'
 import { ReactComponent as NewWindow } from './assets/images/icon-new-window.svg'
 
+import ThemeToggle from './components/ThemeToggle/ThemeToggle'
+
 const App = () => {
+  const [theme, setTheme] = useState('light')
+
+  const handleToggle = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
+
   return (
-    <div className='app'>
+    <div className={`app ${theme}`}>
       <header>
-        <Logo className='logo' />
+        <Logo className='logo' width={32} height={36.5} />
         <div className='ui-controls'>
           <select>
             <option value='Inter, sans-serif'>Sans Serif</option>
@@ -15,22 +24,19 @@ const App = () => {
             <option value='Inconsolata, monospace'>Monospace</option>
           </select>
           <div className='vertical-divider'></div>
-          <div className='theme-toggle'>
-            <input type='checkbox' aria-label='color theme toggle' />
-            <Moon />
-          </div>
+          <ThemeToggle handleToggle={handleToggle} />
         </div>
-        <input type='search' aria-label='search' placeholder='Search for any word…' minLength='1' autoFocus />
       </header>
+        <input className="search" type='search' aria-label='search' placeholder='Search for any word…' minLength='1' autoFocus />
       <main>
         <section className='word'>
           <div>
             <h1>keyboard</h1>
-            <p>/ˈkiːbɔːd/</p>
+            <p className="phonetics">/ˈkiːbɔːd/</p>
           </div>
 
           <button aria-label='play'>
-            <Play />
+            <Play width={48} height={48} />
           </button>
         </section>
         <section className='definition'>
@@ -55,7 +61,7 @@ const App = () => {
             </li>
           </ul>
           <div className='synonyms'>
-            <h4>Synonyms</h4>
+            <h3>Synonyms</h3>
             <ul>
               <li>electronic keyboard</li>
             </ul>
@@ -76,7 +82,7 @@ const App = () => {
         <div className='horizontal-divider'></div>
       </main>
       <footer>
-        <h5>Source</h5>
+        <h4>Source</h4>
         <a
           href='https://en.wiktionary.org/wiki/keyboard'
           target='_blank'

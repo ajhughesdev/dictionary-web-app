@@ -1,0 +1,165 @@
+@import 'the-new-css-reset';
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter/Inter-VariableFont_slnt,wght.woff2')
+    format('woff2-variations');
+  font-style: normal;
+  font-weight: 100 900;
+  font-variation-settings: 'slnt' -10 0;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('./assets/fonts/lora/Lora-VariableFont_wght.woff2')
+    format('woff2-variations');
+  font-style: normal;
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('./assets/fonts/lora/Lora-Italic-VariableFont_wght.woff2')
+    format('woff2-variations');
+  font-style: italic;
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('./assets/fonts/inconsolata/Inconsolata-VariableFont_wdth,wght.woff2')
+    format('woff2-variations');
+  font-style: normal;
+  font-weight: 200 900;
+  font-stretch: 20% 200%;
+}
+
+.app.light {
+  --primary-text-color: #757575;
+  --secondary-text-color: #2d2d2d;
+  --bg-color: #ffffff;
+  --secondary-bg-color: #f4f4f4;
+  --heading-color: #2d2d2d;
+  --moon-path: #a445ed;
+  --placeholder: #2d2d2d;
+  --divider: #E9E9E9;
+}
+
+.app.dark {
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #757575;
+  --bg-color: #050505;
+  --secondary-bg-color: #1f1f1f;
+  --heading-color: #ffffff;
+  --moon-path: #757575;
+  --placeholder: #ffffff;
+  --divider: #3a3a3a;
+}
+
+.app {
+  display: grid;
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+  height: 100vh;
+  -webkit-transition: ease-in-out 450ms;
+  transition: ease-in-out 450ms;
+  font-size: 16px;
+}
+
+h1,
+h2,
+::placeholder {
+  color: var(--secondary-text-color);
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 24px;
+  row-gap: 24px;
+}
+
+.ui-controls {
+  display: flex;
+  align-items: center;
+  color: var(--heading-color);
+}
+
+select {
+  background-image: url("./assets/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  width: 98px;
+  font-weight: 700;
+}
+
+.vertical-divider {
+  height: 2rem;
+  width: 1px;
+  background-color: #E9E9E9;
+  margin: 0 16px;
+}
+
+.moon path {
+  stroke: var(--moon-path);
+}
+
+
+input[type="search"] {
+  background-color: var(--secondary-bg-color);
+  background-image: url("./assets/images/icon-search.svg");
+  background-repeat: no-repeat;
+  background-position: right 16.45px center;
+  padding: 14px 24px 15px;
+  font-weight: 700;
+  transition: ease-in-out 450ms;
+  width: 327px;
+  max-height: 48px;
+  margin: 0 auto;
+  border-radius: 16px;
+  color: var(--placeholder);
+}
+
+::placeholder {
+  opacity: 25%;
+  color: var(--placeholder);
+}
+
+.phonetics {
+  color: #a445ed;
+}
+
+.play:hover {
+  cursor: pointer;
+
+  & circle {
+    opacity: 1;
+  }
+  & path {
+    fill: #ffffff;
+  }
+}
+
+.part-of-speech {
+  display: flex;
+  align-items: center;
+  padding-inline: 24px;
+
+  & h2 {
+    padding-inline-end: 16px;
+  }
+
+  
+  & .horizontal-divider {
+    height: 1px;
+    width: 100%;
+    background-color: var(--divider);
+    margin: 24px 0;
+    transition: ease-in-out 450ms;
+  }
+}
+
+.synonyms li {
+  color: #a445ed;
+}

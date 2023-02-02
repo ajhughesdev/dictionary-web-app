@@ -16,6 +16,9 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "postcss-nesting": "^11.1.0",
+    "postcss-preset-env": "^8.0.1",
+    "the-new-css-reset": "^1.8.3",
     "vite": "^4.0.0",
     "vite-plugin-svgr": "^2.4.0"
   }

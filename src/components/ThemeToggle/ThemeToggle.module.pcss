@@ -1,0 +1,52 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.25rem;
+}
+
+.checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .slider {
+    background-color: #a445ed;
+  }
+
+  &:checked + .slider:before {
+    translate: 1.25rem;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #757575;
+  -webkit-transition: 450ms;
+  transition: 450ms;
+  border-radius: 0.625rem;
+
+  &:before {
+    position: absolute;
+    content: '';
+    height: 0.875rem;
+    width: 0.875rem;
+    left: 0.1875rem;
+    top: 0.1875rem;
+    background-color: #ffffff;
+    -webkit-transition: 450ms;
+    transition: 450ms;
+    border-radius: 50%;
+  }
+}
