@@ -1,0 +1,52 @@
+.custom-select {
+  position: relative;
+
+  & .select-selected {
+    background: url('./../../assets/images/icon-arrow-down.svg') no-repeat right
+      center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-align: right;
+    padding-inline-end: 1.625rem;
+    cursor: pointer;
+    line-height: calc(24 / 14);
+    width: 9.5625rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+      width: 11.4375rem;
+
+    }
+  }
+
+  & .select-items {
+    font-size: 0.875rem;
+    width: 9.5625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.827rem;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    cursor: pointer;
+    position: absolute;
+    top: 2.25rem;
+    z-index: 99;
+    background: var(--select-menu);
+    color: var(--heading-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    font-weight: 700;
+    line-height: calc(100% * (1 + (1 / 3)));
+
+    & div:hover {
+      color: var(--purple);
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1.125rem;
+      width: 11.4375rem;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+  }
+}

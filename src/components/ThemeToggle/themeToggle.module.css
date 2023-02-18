@@ -17,7 +17,7 @@
   height: 0;
 
   &:checked + .slider {
-    background-color: #a445ed;
+    background-color: var(--purple);
   }
 
   &:checked + .slider:before {
@@ -36,6 +36,10 @@
   -webkit-transition: 450ms;
   transition: 450ms;
   border-radius: 0.625rem;
+
+  &:hover {
+    background-color: var(--purple);
+  }
 
   &:before {
     position: absolute;

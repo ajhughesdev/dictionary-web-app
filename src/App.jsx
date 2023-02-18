@@ -1,38 +1,73 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { ReactComponent as Logo } from './assets/images/logo.svg'
 import { ReactComponent as Play } from './assets/images/icon-play.svg'
 import { ReactComponent as NewWindow } from './assets/images/icon-new-window.svg'
 
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
+import FontSelector from './components/FontSelector/FontSelector'
 
 const App = () => {
   const [theme, setTheme] = useState('light')
+  const [font, setFont] = useState('Lora, serif')
+
+  const [showDropdown, setShowDropdown] = useState(false)
+  const selectRef = useRef(null)
 
   const handleToggle = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
+  const handleSelect = (value) => {
+    setFont(value)
+  }
+
+  const handleClickOutside = (event) => {
+    if (selectRef.current && !selectRef.current.contains(event.target)) {
+      setShowDropdown(false)
+    }
+  }
+
+  const options = [
+    { id: 1, value: 'Sans Serif', fontFamily: 'Inter, sans-serif' },
+    { id: 2, value: 'Serif', fontFamily: 'Lora, serif' },
+    { id: 3, value: 'Mono', fontFamily: 'Inconsolata, monospace' },
+  ]
+
   return (
-    <div className={`app ${theme}`}>
+    <div
+      className={`app ${theme}`}
+      style={{ fontFamily: font }}
+      onClick={handleClickOutside}
+    >
       <header>
-        <Logo className='logo' width={32} height={36.5} />
+        <Logo className='logo' />
         <div className='ui-controls'>
-          <select>
-            <option value='Inter, sans-serif'>Sans Serif</option>
-            <option value='Lora, serif'>Serif</option>
-            <option value='Inconsolata, monospace'>Monospace</option>
-          </select>
+          <FontSelector
+            options={options}
+            handleSelect={handleSelect}
+            selectRef={selectRef}
+            showDropdown={showDropdown}
+            setShowDropdown={setShowDropdown}
+            handleClickOutside={handleClickOutside}
+          />
           <div className='vertical-divider'></div>
           <ThemeToggle handleToggle={handleToggle} />
         </div>
       </header>
-        <input className="search" type='search' aria-label='search' placeholder='Search for any word…' minLength='1' autoFocus />
+      <input
+        className='search'
+        type='search'
+        aria-label='search'
+        placeholder='Search for any word…'
+        minLength='1'
+        autoFocus
+      />
       <main>
         <section className='word'>
           <div>
             <h1>keyboard</h1>
-            <p className="phonetics">/ˈkiːbɔːd/</p>
+            <p className='phonetics'>/ˈkiːbɔːd/</p>
           </div>
 
           <button aria-label='play'>
@@ -87,7 +122,8 @@ const App = () => {
           href='https://en.wiktionary.org/wiki/keyboard'
           target='_blank'
           rel='noreferrer'
-        >https://en.wiktionary.org/wiki/keyboard <NewWindow />
+        >
+          https://en.wiktionary.org/wiki/keyboard <NewWindow />
         </a>
       </footer>
     </div>
