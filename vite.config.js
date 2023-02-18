@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import postcss from 'postcss'
 import postcssPresetEnv from 'postcss-preset-env'
-import postcssNesting from 'postcss-nesting'
+// import postcssNesting from 'postcss-nesting'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,12 +11,13 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        postcss([
-          postcssNesting(),
-          postcssPresetEnv({
-            stage: 0,
-          }),
-        ]),
+        postcssPresetEnv({
+          stage: 0,
+          features: {
+            'nesting-rules': true,
+          },
+        }),
+        // postcssNesting(),
       ],
     },
   },
