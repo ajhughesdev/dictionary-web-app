@@ -9,7 +9,7 @@ import FontSelector from './components/FontSelector/FontSelector'
 
 const App = () => {
   const [theme, setTheme] = useState('light')
-  const [font, setFont] = useState('Lora, serif')
+  const [font, setFont] = useState('Lora, Lora-fallback, serif')
 
   const [showDropdown, setShowDropdown] = useState(false)
   const selectRef = useRef(null)
@@ -29,9 +29,9 @@ const App = () => {
   }
 
   const options = [
-    { id: 1, value: 'Sans Serif', fontFamily: 'Inter, sans-serif' },
-    { id: 2, value: 'Serif', fontFamily: 'Lora, serif' },
-    { id: 3, value: 'Mono', fontFamily: 'Inconsolata, monospace' },
+    { id: 1, value: 'Sans Serif', fontFamily: 'Inter, Inter-fallback, sans-serif' },
+    { id: 2, value: 'Serif', fontFamily: 'Lora, Lora-fallback, serif' },
+    { id: 3, value: 'Mono', fontFamily: 'Inconsolata, Inconsolata-fallback, monospace' },
   ]
 
   return (

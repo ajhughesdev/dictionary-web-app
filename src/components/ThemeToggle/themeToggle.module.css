@@ -37,7 +37,8 @@
   transition: 450ms;
   border-radius: 0.625rem;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--purple);
   }
 

@@ -7,6 +7,14 @@
   font-style: normal;
   font-weight: 100 900;
   font-variation-settings: 'slnt' -10 0;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Inter-fallback';
+  size-adjust: 107%;
+  ascent-override: 90%;
+  src: local('Arial');
 }
 
 @font-face {
@@ -15,6 +23,7 @@
     format('woff2-variations');
   font-style: normal;
   font-weight: 400 700;
+  font-display: optional;
 }
 
 @font-face {
@@ -23,6 +32,14 @@
     format('woff2-variations');
   font-style: italic;
   font-weight: 400 700;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Lora-fallback';
+  size-adjust: 115.67999999999995%;
+  ascent-override: 83%;
+  src: local('Times New Roman');
 }
 
 @font-face {
@@ -32,6 +49,14 @@
   font-style: normal;
   font-weight: 200 900;
   font-stretch: 20% 200%;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Inconsolata-fallback';
+  size-adjust: 111.88%;
+  ascent-override: 65%;
+  src: local('Arial');
 }
 
 .app.light {
@@ -43,7 +68,7 @@
   --moon-path: hsl(0, 0%, 46%);
   --select-menu: var(--white);
   --box-shadow: 0px 5px 30px hsla(0, 0%, 0%, 0.1);
-  --horizontal-divider: hsl(0, 0%, 91%);
+  --horizontal-divider: hsl(0, 0%, 23%);
 }
 
 .app.dark {
@@ -55,7 +80,7 @@
   --moon-path: var(--purple);
   --select-menu: hsl(0, 0%, 12%);
   --box-shadow: 0px 5px 30px var(--purple);
-  --horizontal-divider: hsl(0, 0%, 23%);
+  --horizontal-divider: hsl(0, 0%, 91%);
 }
 
 .app {
@@ -65,7 +90,7 @@
   min-height: 100vh;
   flex-direction: column;
   font-size: 16px;
-  font-family: 'Lora', serif;
+  font-family: 'Lora', 'Lora-fallback', serif;
   padding: 1.5rem;
   background-color: var(--bg-color);
 }
@@ -105,10 +130,8 @@ header {
 }
 
 input[type='search'] {
-  background-color: var(--secondary-bg-color);
-  background-image: url('./assets/images/icon-search.svg');
-  background-repeat: no-repeat;
-  background-position: right 16.45px center;
+  background: var(--secondary-bg-color) url('./assets/images/icon-search.svg')
+    no-repeat right 16.45px center;
   padding: 14px 24px 15px;
   font-weight: 700;
   transition: ease-in-out 450ms;
@@ -128,7 +151,8 @@ input[type='search'] {
   color: #a445ed;
 }
 
-.play:hover {
+.play:hover,
+.play:focus {
   cursor: pointer;
 
   & circle {
@@ -143,7 +167,7 @@ input[type='search'] {
 .part-of-speech {
   display: flex;
   align-items: center;
-  padding-inline: 24px;
+  /* padding-inline: 24px; */
 
   & h2 {
     padding-inline-end: 16px;
